@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="irecorder_bg">#535154</color>
+    <color name="irecorder_record_button">#FC3D21</color>
+    <color name="irecorder_send_button">#7ED321</color>
+    <color name="irecorder_cancel_button">#4AC9C2</color>
+    <color name="irecorder_progressbar_bg">#efefef</color>
+    <color name="irecorder_progressbar">#FC3D21</color>
+</resources>

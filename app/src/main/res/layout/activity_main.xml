@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.guowei.lv.irecorder.MainActivity">
+
+    <Button
+        android:id="@+id/record_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/status_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="@dimen/irecorder_status_layout_margin_right"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/audio_recorder_progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:maxHeight="10dp"
+            android:minHeight="5dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/irecorder_progressbar" />
+
+        <TextView
+            android:id="@+id/audio_recorder_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="@string/irecorder_timer_init"
+            android:textColor="@android:color/holo_red_light" />
+
+    </LinearLayout>
+
+    <com.guowei.lv.library.IRecorderLayout
+        android:id="@+id/recorder_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

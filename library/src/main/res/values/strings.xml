@@ -1,0 +1,6 @@
+<resources>
+    <string name="irecorder_app_name">IRecorder</string>
+    <string name="irecorder_press_longer">Press longer</string>
+    <string name="irecorder_timer_init">0:00</string>
+
+</resources>

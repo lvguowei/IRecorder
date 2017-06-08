@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="irecorder_size">240dp</dimen>
+    <dimen name="irecorder_layout_size">220dp</dimen>
+    <dimen name="irecorder_tray_margin_left">60dp</dimen>
+    <dimen name="irecorder_tray_margin_top">34dp</dimen>
+    <dimen name="irecorder_tray_record_button_margin_bottom">45dp</dimen>
+    <dimen name="irecorder_tray_record_button_margin_right">18dp</dimen>
+    <dimen name="irecorder_tray_action_button_distance">55dp</dimen>
+    <dimen name="irecorder_tray_action_button_size">40dp</dimen>
+    <dimen name="irecorder_status_layout_margin_right">90dp</dimen>
+</resources>

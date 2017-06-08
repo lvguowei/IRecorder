@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/irecorder_layout_size"
+    android:layout_height="@dimen/irecorder_layout_size"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/audio_recorder_bg_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/irecorder_tray_margin_left"
+        android:layout_marginStart="@dimen/irecorder_tray_margin_left"
+        android:layout_marginTop="@dimen/irecorder_tray_margin_top"
+        android:scaleType="matrix"
+        android:src="@drawable/irecorder_layout_bg" />
+
+    <FrameLayout
+        android:id="@+id/record_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/irecorder_tray_record_button_margin_bottom"
+        android:layout_marginEnd="@dimen/irecorder_tray_record_button_margin_right"
+        android:layout_marginRight="@dimen/irecorder_tray_record_button_margin_right">
+
+        <ImageView
+            android:id="@+id/record_button_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_record_button_bg" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_recording_button" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/play_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/irecorder_tray_record_button_margin_bottom"
+        android:layout_marginEnd="@dimen/irecorder_tray_record_button_margin_right"
+        android:layout_marginRight="@dimen/irecorder_tray_record_button_margin_right"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/play_button_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_record_button_bg" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_play_button" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/pause_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/irecorder_tray_record_button_margin_bottom"
+        android:layout_marginEnd="@dimen/irecorder_tray_record_button_margin_right"
+        android:layout_marginRight="@dimen/irecorder_tray_record_button_margin_right"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/pause_button_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_record_button_bg" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_pause_button" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/record_button"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/irecorder_tray_action_button_distance"
+        android:layout_marginEnd="@dimen/irecorder_tray_record_button_margin_right"
+        android:layout_marginRight="@dimen/irecorder_tray_record_button_margin_right"
+        android:background="@drawable/irecorder_send_button_selector"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/send_button_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_send_button_bg"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_send_arrow" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/record_button"
+        android:layout_marginEnd="@dimen/irecorder_tray_action_button_distance"
+        android:layout_marginRight="@dimen/irecorder_tray_action_button_distance"
+        android:layout_toLeftOf="@id/record_button"
+        android:layout_toStartOf="@id/record_button"
+        android:background="@drawable/irecorder_cancel_button_selector"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/cancel_button_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_cancel_button_bg"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/irecorder_trash" />
+    </FrameLayout>
+
+</RelativeLayout>
