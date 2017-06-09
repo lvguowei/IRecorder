@@ -161,12 +161,7 @@ public class IRecorderManager implements IRecorderPlayerListener {
                 }
             }
         };
-    }
 
-
-    public void init() {
-
-        // inits audio playback manager
         player.registerProgressListener(this);
     }
 
@@ -356,8 +351,6 @@ public class IRecorderManager implements IRecorderPlayerListener {
                 listener.onStartRecording();
             }
         } catch (Exception e) {
-            // Catch full exception as a Runtime Exception is thrown by 
-            // the Google Samsung 4.3.1 phone
             resetRecordingStatusLayout();
             resetRecorderLayout();
 
@@ -475,13 +468,11 @@ public class IRecorderManager implements IRecorderPlayerListener {
         audioRecordingProgressBar.setProgress((int) (100 * ratio));
         switch (state) {
             case PLAYING:
-                audioRecorderPlayButton.setVisibility(View.INVISIBLE);
-                audioRecorderPauseButton.setVisibility(View.VISIBLE);
+                audioRecorderLayout.play();
                 break;
             case PAUSED:
             case COMPLETED:
-                audioRecorderPlayButton.setVisibility(View.VISIBLE);
-                audioRecorderPauseButton.setVisibility(View.INVISIBLE);
+                audioRecorderLayout.pauseOrComplete();
                 break;
             default:
         }

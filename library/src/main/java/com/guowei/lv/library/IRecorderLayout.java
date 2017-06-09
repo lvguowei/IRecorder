@@ -154,7 +154,7 @@ public class IRecorderLayout extends RelativeLayout {
         pauseButton.setVisibility(View.VISIBLE);
     }
 
-    public void pause() {
+    public void pauseOrComplete() {
         recordButton.setVisibility(View.INVISIBLE);
         playButton.setVisibility(View.VISIBLE);
         pauseButton.setVisibility(View.INVISIBLE);
