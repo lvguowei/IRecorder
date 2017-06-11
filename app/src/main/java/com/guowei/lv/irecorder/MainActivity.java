@@ -33,15 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO},
                     PERMISSIONS_REQUEST);
         }
-    }
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        recorderLayout = (IRecorderLayout) findViewById(R.id.recorder_layout);
         recorderLayout.setListener(new IRecorderListener() {
             @Override
             public void onSendAudioNote(Uri fileUri) {
@@ -73,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        recorderLayout.prepare();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        recorderLayout = (IRecorderLayout) findViewById(R.id.recorder_layout);
     }
 
     @Override

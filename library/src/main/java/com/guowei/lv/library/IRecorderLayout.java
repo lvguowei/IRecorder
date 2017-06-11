@@ -14,7 +14,6 @@ import android.os.Looper;
 import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -61,72 +60,48 @@ public class IRecorderLayout extends RelativeLayout implements IRecorderPlayerLi
      */
     private static final int RECORDING_PROGRESS_UPDATE_RATE = 200;
 
+    private final static int EXPAND_ANIMATION_DURATION = 300;
+
+    private final static int SHRINK_ANIMATION_DURATION = 400;
+
     /**
      * Offset for activate the buttons (dp)
      */
     private int activationPointOffset = 10;
 
-    private final static int EXPAND_ANIMATION_DURATION = 300;
-
-    private final static int SHRINK_ANIMATION_DURATION = 400;
-
-    private Handler handler;
 
     private View recorderButton;
-
     private View recorderTray;
-
     private View recorderStatusLayout;
-
     private View recordButton;
-
     private View playButton;
-
     private View pauseButton;
-
     private View cancelButton;
-
     private View sendButton;
-
     private View cancelButtonBg;
-
     private View sendButtonBg;
-
     private View audioRecorderBgView;
-
     private TextView audioRecordingTimerTextView;
-
     private ProgressBar audioRecordingProgressBar;
+
+    private Vibrator vibrator;
+    private MediaHandler mediaHandler;
+    private IRecorder recorder;
+    private IRecorderPlayer player;
+    private IRecorderListener listener;
 
     private RecState state;
 
-    private MediaHandler mediaHandler;
-
-    private Vibrator vibrator;
-
     private Runnable recordButtonPressedRunnable;
-
-    private AnimationType animationType = AnimationType.SHRINK;
-
-    private boolean duringAnimation;
-
-    private Animation showAudioRecorderTrayAnim;
-
-    private Animation cancelAnimation;
-
-    private Animation sendAnimation;
-
-    private IRecorder recorder;
-
-    private IRecorderListener listener;
-
-    private long recordingStartTime;
-
     private Runnable recordingRunnable;
 
-    private IRecorderPlayer player;
 
-
+    private boolean duringAnimation;
+    private AnimationType animationType = AnimationType.SHRINK;
+    private Animation showAudioRecorderTrayAnim;
+    private Animation cancelAnimation;
+    private Animation sendAnimation;
+    private long recordingStartTime;
     private AnimatorListener animListener = new AnimatorListener() {
 
         @Override
@@ -174,6 +149,8 @@ public class IRecorderLayout extends RelativeLayout implements IRecorderPlayerLi
         public void onAnimationCancel(Animator animation) {
         }
     };
+
+    private Handler handler;
 
     public IRecorderLayout(Context context) {
         super(context);
@@ -369,7 +346,6 @@ public class IRecorderLayout extends RelativeLayout implements IRecorderPlayerLi
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final int action = event.getAction();
-                Log.d("test", "onTouch: " + action);
                 switch (action) {
 
                     case MotionEvent.ACTION_DOWN:
@@ -389,9 +365,6 @@ public class IRecorderLayout extends RelativeLayout implements IRecorderPlayerLi
 
         handler = new Handler(Looper.getMainLooper());
         setupAnimation();
-
-        player.registerProgressListener(this);
-
     }
 
     private Uri getAudioNoteUri() {
@@ -634,9 +607,11 @@ public class IRecorderLayout extends RelativeLayout implements IRecorderPlayerLi
         return String.format("%02d:%02d", seconds / 60, seconds % 60);
     }
 
+    public void prepare() {
+        player.registerProgressListener(this);
+    }
 
     public void release() {
-
         // cancels recording if is recording
         cancelRecording();
 
@@ -706,9 +681,21 @@ public class IRecorderLayout extends RelativeLayout implements IRecorderPlayerLi
      * The actions when the user lifts his finger
      */
     private enum Action {
-        SEND,   // Send the audio
-        CANCEL, // cancels and discards the recording
-        STOP    // stops recording and wait for user's input
+
+        /**
+         * Send the audio
+         */
+        SEND,
+
+        /**
+         * cancels and discards the recording
+         */
+        CANCEL,
+
+        /**
+         * stops recording and wait for user's input
+         */
+        STOP
     }
 
 

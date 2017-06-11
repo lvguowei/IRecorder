@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IVoidRecorder</string>
+    <string name="app_name">IRecorder</string>
     <string name="irecorder_timer_init">0:00</string>
 
 </resources>

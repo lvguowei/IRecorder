@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Recording audio files.
  */
-public class IRecorder {
+class IRecorder {
 
     private MediaRecorder recorder;
 
