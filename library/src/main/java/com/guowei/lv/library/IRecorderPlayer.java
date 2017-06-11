@@ -11,7 +11,7 @@ import android.os.Handler;
 /**
  * Plays audio notes.
  */
-public class IRecorderPlayer {
+class IRecorderPlayer {
 
     /**
      * How often it updates the progress
@@ -43,7 +43,7 @@ public class IRecorderPlayer {
 
     private IRecorderPlayerListener listener;
 
-    public IRecorderPlayer() {
+    IRecorderPlayer() {
         handler = new Handler();
     }
 
@@ -236,11 +236,7 @@ public class IRecorderPlayer {
         }
 
         // detects whether should stop updating or not
-        if (state == State.PAUSED) {
-            updateProgressBar = false;
-        } else {
-            updateProgressBar = true;
-        }
+        updateProgressBar = state != State.PAUSED;
     }
 
 }
